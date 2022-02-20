@@ -8,6 +8,7 @@ var context = canvas.getContext('2d');
 var player = new Player();
 var computer = new Computer();
 var ball = new Ball(width/2, height/2);
+var scoreboard = new Scoreboard(0, 0);
 
 var keysDown = {};
 
@@ -17,15 +18,21 @@ var keysDown = {};
 var render = function () {
 context.fillStyle = "#000000";
 context.fillRect(0, 0, width, height);
+for (var i=0; i<height; i+=height/5) {
+    context.fillStyle= "#FFFFFF";
+    context.fillRect(width/2-1, i + height/25, 2, height/9);
+}
 player.render();
 computer.render();
 ball.render();
+scoreboard.render();
 };
 
 var update = function () {
 player.update();
 computer.update(ball);
-ball.update(player.paddle, computer.paddle);
+ball.update(player.paddle, computer.paddle, scoreboard);
+
 };
 
 var step = function () {
@@ -112,7 +119,7 @@ this.x = x;
 this.y = y;
 this.x_speed = -2;
 this.y_speed = 0;
-this.x_increment = 0.02;
+this.x_increment = 0.2;
 }
 
 Ball.prototype.render = function () {
@@ -122,7 +129,7 @@ context.fillStyle = "#FF0000";
 context.fill();
 };
 
-Ball.prototype.update = function (paddle1, paddle2) {
+Ball.prototype.update = function (paddle1, paddle2, scoreboard) {
 this.x += this.x_speed;
 this.y += this.y_speed;
 var left_x = this.x - 4;
@@ -153,6 +160,11 @@ if (this.x < 0 || this.x > width) {
     } else {
         sign2 = -1
     }
+    if (this.x < 0) {
+        scoreboard.c +=1;
+    } else {
+        scoreboard.p +=1;
+    }
     this.y_speed = 0; //sign1 * (Math.random() * 3);
     this.x_speed = sign2 * -2;
     this.y = height/2;
@@ -175,6 +187,19 @@ if (left_x < 13) {
     }
 }
 };
+
+function Scoreboard(p, c) {
+    this.p = p;
+    this.c = c;
+}
+
+Scoreboard.prototype.render = function() {
+    context.fillStyle = "#FFFFFF";
+    context.fillText(`${this.p}`, width/2-15, 15);
+    context.fillText(`${this.c}`, width/2+10, 15);
+}
+
+
 
 document.body.appendChild(canvas);
 animate(step);

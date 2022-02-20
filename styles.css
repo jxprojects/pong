@@ -45,12 +45,17 @@ body {
 }
 
 canvas {
-    margin-top: -180px;
+    margin-top: -490px;
     width: 60%;
     height: 60%;
     margin-left: 20%;
 }
-  
+#fixurself{
+    color:aqua;
+    margin-left: 20%;
+    text-align: left;
+    margin-top: 440px;
+}
   
 
   

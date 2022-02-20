@@ -18,10 +18,10 @@
         canvas.width  = window.innerWidth;
     }
 
-    if (canvas.height < window.innerHeight)
-    {
-        canvas.height = window.innerHeight;
-    }
+    //if (canvas.height < window.innerHeight)
+    //{
+    //    canvas.height = window.innerHeight;
+    //}
 }
     </script>
 
@@ -50,10 +50,12 @@
         <a href="">Contact</a>
         <hr>
     </div>
-    <section class="game">
-          <canvas onresize="resize_canvas()" data-processing-sources="script.js"></canvas>
-    </section>
-   
+    <div class="game">
+          <canvas id="b" onresize="resize_canvas()" data-processing-sources="script.js"></canvas>
+    </div>
+    <div class="sel">
+        <h1 id="fixurself"> w</h1>
+    </div>
     
     
     
