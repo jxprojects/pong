@@ -74,9 +74,9 @@ Computer.prototype.update = function (ball) {
 var y_pos = ball.y;
 var diff = -((this.paddle.y + (this.paddle.height / 2)) - y_pos);
 if (diff < 0 && diff < -4) {
-    diff = -3;
+    diff = -2;
 } else if (diff > 0 && diff > 4) {
-    diff = 3;
+    diff = 2;
 }
 this.paddle.move(0, diff);
 if (this.paddle.y < 0) {
@@ -110,8 +110,9 @@ for (var key in keysDown) {
 function Ball(x, y) {
 this.x = x;
 this.y = y;
-this.x_speed = -2.5;
+this.x_speed = -2;
 this.y_speed = 0;
+this.x_increment = 0.02;
 }
 
 Ball.prototype.render = function () {
@@ -138,8 +139,22 @@ if (this.y - 4 < 0) {
 }
 
 if (this.x < 0 || this.x > width) {
-    this.y_speed = 0;
-    this.x_speed = -2.5;
+    var sign1 = 0;
+    var sign2 = 0;
+    var x = Math.random();
+    if (x > 0.5) {
+        sign1 = 1;
+    } else {
+        sign1 = -1
+    }
+    x = Math.random();
+    if (x > 0.5) {
+        sign2 = 1;
+    } else {
+        sign2 = -1
+    }
+    this.y_speed = 0; //sign1 * (Math.random() * 3);
+    this.x_speed = sign2 * -2;
     this.y = height/2;
     this.x = width/2;
 }
@@ -147,14 +162,16 @@ if (this.x < 0 || this.x > width) {
 if (left_x < 13) {
     if (left_x < (paddle1.x + paddle1.height) && right_x > paddle1.x && left_y < (paddle1.y + paddle1.height) && right_y > paddle1.y) {
         this.x_speed = -this.x_speed;
-        this.y_speed += (paddle1.y_speed / 2);
+        this.y_speed += (paddle1.y_speed / 2.2);
         this.x += this.x_speed;
+        this.x_speed+= this.x_increment;
     }
 } else if (right_x > width-15) {
     if (left_x < (paddle2.x + paddle2.width) && right_x > paddle2.x && left_y < (paddle2.y + paddle2.height) && right_y > paddle2.y) {
-        this.x_speed = -2.5;
-        this.y_speed += (paddle2.y_speed / 2);
+        this.x_speed = -this.x_speed;
+        this.y_speed += (paddle2.y_speed / 2.2);
         this.x += this.x_speed;
+        this.x_speed+= -this.x_increment;
     }
 }
 };
