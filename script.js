@@ -80,10 +80,10 @@ this.paddle.render();
 Computer.prototype.update = function (ball) {
 var y_pos = ball.y;
 var diff = -((this.paddle.y + (this.paddle.height / 2)) - y_pos);
-if (diff < 0 && diff < -4) {
-    diff = -2;
-} else if (diff > 0 && diff > 4) {
-    diff = 2;
+if (diff < 0 && diff < -1.75) {
+    diff = -1.75;
+} else if (diff > 0 && diff > 1.75) {
+    diff = 1.75;
 }
 this.paddle.move(0, diff);
 if (this.paddle.y < 0) {
@@ -119,7 +119,7 @@ this.x = x;
 this.y = y;
 this.x_speed = -2;
 this.y_speed = 0;
-this.x_increment = 0.2;
+this.x_increment = 0.03;
 }
 
 Ball.prototype.render = function () {
