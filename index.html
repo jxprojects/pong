@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <!-- My First JS code-->
+    <script>
+        var links = ["jxprojects.github.io/home/"];
+
+        openLink = function () {
+            var randIdx = Math.random() * links.length;
+            randIdx = parseInt(randIdx, 10);
+            var link = 'http://' + links[randIdx];
+            window.open(link);
+        };
+
+        function resize_canvas(){
+    canvas = document.getElementById("canvas");
+    if (canvas.width  < window.innerWidth)
+    {
+        canvas.width  = window.innerWidth;
+    }
+
+    if (canvas.height < window.innerHeight)
+    {
+        canvas.height = window.innerHeight;
+    }
+}
+    </script>
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hello world</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" type="module"></script>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <!-- ICON IN HEAD -->
+    <link rel="icon" href="images/logo.PNG">
+</head>
+<body>
+    <!-- BAR WITH "WELCOME", PAGE OPTS -->
+    <div class="sel">
+        <a href="../home/"><img src="images/logo.PNG"></a>
+        <button onclick="openLink();">Projects</button>
+        <a href="">About</a>
+        <a href="">Contact</a>
+        <hr>
+    </div>
+    <section class="game">
+          <canvas onresize="resize_canvas()" data-processing-sources="script.js"></canvas>
+    </section>
+   
+    
+    
+    
+</body>
+</html>

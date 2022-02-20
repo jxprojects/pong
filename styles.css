@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'IBM Plex Mono', monospace;
+    background-color: white;
+    background-size: cover;
+}
+.sel {
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+    text-align: center;
+}
+.sel li {
+    display: inline-block; /* NEW */
+}
+.sel a{
+    font-weight: 100;
+    color: black;
+    border: none;
+     /* aspect must apply to innermost */
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.sel button {
+    font-weight: 100;
+    padding: 0;
+    border: none;
+    background: none;
+    text-decoration: underline;
+    font-size: 95%;
+    font-family: 'IBM Plex Mono', monospace;
+    color: black;
+
+}
+.sel img{
+    max-width: 14px;
+}
+.sel hr{
+    height: 1px;
+    background-color: black;
+    border-color: rgba(0, 0, 0, 0.0);
+    margin-right: 20%;
+    margin-left: 20%;
+}
+
+canvas {
+    margin-top: -250px;
+    width: 60%;
+    height: 80%;
+    margin-left: 20%;
+}
+  
+  
+
+  
