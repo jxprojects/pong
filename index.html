@@ -45,14 +45,18 @@
     <!-- BAR WITH "WELCOME", PAGE OPTS -->
     <div class="sel">
         <a href="../home/"><img src="images/logo.PNG"></a>
-        <button onclick="openLink();">Projects</button>
-        <a href="">About</a>
-        <a href="">Contact</a>
+        <button onclick="openLink();">A Project</button>
+        <a href="../about">About</a>
         <hr>
     </div>
-    <div class="desc">
-        <h1 id="fixurself"> Pong <hr id="crossline"></h1>
-        <h3 class="tab">This is a pong clone made in vanilla JavaScript! You're the left side player, use the up and down arrow keys to play. </h3>
+    <div class="main">
+        <h1>Pong</h1>
+        <hr id="crossline">
+        <p class="da"><mark>Maxwell Ito, Julia Kozak - Feb 2022</mark></p>
+        <p>
+            This is a pong clone made in vanilla JavaScript! You're the left side player, 
+            use the up and down arrow keys to play.
+        </p>
     </div>
     <div class="game">
           <canvas id="b" onresize="resize_canvas()" data-processing-sources="script.js"></canvas>

@@ -125,7 +125,7 @@ this.x_increment = 0.03;
 Ball.prototype.render = function () {
 context.beginPath();
 context.arc(this.x, this.y, 3, 2 * Math.PI, false);
-context.fillStyle = "#FF0000";
+context.fillStyle = "#FFFFFF";
 context.fill();
 };
 
