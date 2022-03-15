@@ -165,7 +165,7 @@ if (this.x < 0 || this.x > width) {
     } else {
         scoreboard.p +=1;
     }
-    this.y_speed = 0; //sign1 * (Math.random() * 3);
+    this.y_speed = sign1 * (Math.random() * 3); //you
     this.x_speed = sign2 * -2;
     this.y = height/2;
     this.x = width/2;
