@@ -12,7 +12,11 @@ var scoreboard = new Scoreboard(0, 0);
 
 var keysDown = {};
 
-
+window.addEventListener("keydown", function(e) {
+    if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
+        e.preventDefault();
+    }
+}, false);
 
 
 var render = function () {
